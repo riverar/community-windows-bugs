@@ -1,0 +1,112 @@
+name: Bug Report
+description: Report a reproducible Windows bug
+labels: ["not-validated"]
+body:
+  - type: textarea
+    id: bug-description
+    attributes:
+      label: Description
+      description: A clear and concise description of what the bug is.
+    validations:
+      required: true
+
+  - type: input
+    id: repo-url
+    attributes:
+      label: Reproduction Repository URL
+      description: GitHub repository URL containing buildable minimal reproduction code or materials.
+      placeholder: https://github.com/username/repo
+    validations:
+      required: false
+
+  - type: input
+    id: fbh-url
+    attributes:
+      label: Feedback Hub Item URL
+      description: |
+        File an issue in Feedback Hub and provide the URL to that item here.
+
+        * For API bugs, file them under Developer Platform > API Feedback.
+        * For inbox app bugs, file them under Apps > [app name].
+        * For other bugs, try your best to pick the most relevant category.
+      placeholder: https://aka.ms/Abcdef
+    validations:
+      required: true
+
+  - type: textarea
+    id: repro-files
+    attributes:
+      label: Reproduction Files (if no repository)
+      description: If you can't provide a repository, attach a ZIP of a buildable minimal reproduction project or other materials.
+    validations:
+      required: false
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to Reproduce
+      description: Provide exact steps to reproduce the behavior.
+      placeholder: |
+        1. 
+        2. 
+        3. 
+    validations:
+      required: true
+
+  - type: dropdown
+    id: windows-version
+    attributes:
+      label: Windows Version
+      description: Select your Windows version. Do not file an issue against unsupported Windows versions.
+      options:
+        - 11
+        - Other / Not Applicable
+    validations:
+      required: true
+
+  - type: dropdown
+    id: windows-edition
+    attributes:
+      label: Windows Edition
+      description: Select your Windows edition.
+      options:
+        - Home
+        - Pro
+        - Pro for Workstations
+        - Enterprise
+        - Education
+        - Other / Not Applicable
+    validations:
+      required: true
+
+  - type: input
+    id: build-number
+    attributes:
+      label: Build Number
+      description: Press Win+R, type 'winver', press Enter to find this.
+      placeholder: '26220.5770'
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional Context
+      description: Any other context, screenshots, error messages, or logs.
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Pre-submission Checklist
+      description: Please confirm.
+      options:
+        - label: I am filing a bug I can reproduce on Windows 11.
+          required: true
+        - label: I have provided reproduction materials and if applicable, build successfully.
+          required: true
+        - label: I have included clear steps to reproduce.
+          required: true
+        - label: I have specified my exact Windows version, SKU, and build number.
+          required: true
